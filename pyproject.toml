@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cltrier_lib"
+version = "0.1.0"
+description = ""
+license = "MIT"
+authors = ["Simon Münker <simon.muenker@googlemail.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "^2.8.2"
+tqdm = "^4.66.4"
+pandas = "^2.2.2"
+ollama = "^0.3.0"
+rich = "^13.8.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+ruff = "^0.5.5"
+
