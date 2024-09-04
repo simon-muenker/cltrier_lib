@@ -59,12 +59,4 @@ class Chat(pydantic.BaseModel):
     def pprint(self) -> None:
         rich.print(self)
 
-    @pydantic.field_validator("messages")
-    @classmethod
-    def check_messages_base_integrity(
-        cls, messages: typing.List[Message]
-    ) -> typing.List[Message]:
-        if messages[0].role not in ["system", "user"]:
-            raise ValueError("The first message must be the system or user a message.")
 
-        return messages
