@@ -30,7 +30,9 @@ class Pipeline(pydantic.BaseModel):
         finally:
             return chat.add_message(schemas.Message(role="assistant", content=response))
 
-    def batch_process(self, chats: typing.List[schemas.Chat]) -> typing.List[schemas.Chat]:
+    def batch_process(
+        self, chats: typing.List[schemas.Chat]
+    ) -> typing.List[schemas.Chat]:
         return [self(chat) for chat in tqdm.tqdm(chats)]
 
 

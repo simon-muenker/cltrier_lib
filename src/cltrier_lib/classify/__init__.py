@@ -8,7 +8,9 @@ import requests
 class Pipeline(pydantic.BaseModel):
     endpoint: str = "https://metrics.twon.uni-trier.de/"
 
-    def __call__(self, samples: typing.List[str], theta: float = 0.5) -> typing.List[typing.Dict[str, str | float]]:
+    def __call__(
+        self, samples: typing.List[str], theta: float = 0.5
+    ) -> typing.List[typing.Dict[str, str | float]]:
         response: typing.List[typing.Dict[str, str | float]] = []
 
         try:
@@ -25,5 +27,6 @@ class Pipeline(pydantic.BaseModel):
 
         finally:
             return response
+
 
 __all__ = ["Pipeline"]
