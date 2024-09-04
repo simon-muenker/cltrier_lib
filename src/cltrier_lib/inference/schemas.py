@@ -58,5 +58,3 @@ class Chat(pydantic.BaseModel):
 
     def pprint(self) -> None:
         rich.print(self)
-
-
