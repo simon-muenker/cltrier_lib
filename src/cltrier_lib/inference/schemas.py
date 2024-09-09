@@ -58,3 +58,9 @@ class Chat(pydantic.BaseModel):
 
     def pprint(self) -> None:
         rich.print(self)
+
+
+class Options(pydantic.BaseModel):
+    seed: int = 42
+    temperature: float = 0.8
+    num_predict: int = 128

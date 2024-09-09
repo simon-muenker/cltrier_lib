@@ -12,7 +12,9 @@ class Pipeline(pydantic.BaseModel):
     model: schemas.Models = typing.get_args(schemas.Models)[0]
     endpoint: str = "https://inf.cl.uni-trier.de/chat/"
 
-    def __call__(self, chat: schemas.Chat) -> schemas.Chat:
+    def __call__(
+        self, chat: schemas.Chat, options: schemas.Options = schemas.Options()
+    ) -> schemas.Chat:
         response: str = ""
 
         try:
@@ -21,6 +23,7 @@ class Pipeline(pydantic.BaseModel):
                 json={
                     "model": self.model,
                     "messages": chat.model_dump()["messages"],
+                    "options": options.model_dump(),
                 },
             ).json()["response"]
 
@@ -31,9 +34,11 @@ class Pipeline(pydantic.BaseModel):
             return chat.add_message(schemas.Message(role="assistant", content=response))
 
     def batch_process(
-        self, chats: typing.List[schemas.Chat]
+        self,
+        chats: typing.List[schemas.Chat],
+        options: schemas.Options = schemas.Options(),
     ) -> typing.List[schemas.Chat]:
-        return [self(chat) for chat in tqdm.tqdm(chats)]
+        return [self(chat, options) for chat in tqdm.tqdm(chats)]
 
 
 __all__ = ["Pipeline", "schemas"]
