@@ -9,7 +9,7 @@ class Pipeline(pydantic.BaseModel):
     endpoint: str = "https://metrics.twon.uni-trier.de/"
 
     def __call__(
-        self, samples: typing.List[str], theta: float = 0.5
+        self, samples: typing.List[str], threshold: float = 0.5
     ) -> typing.List[typing.Dict[str, str | float]]:
         response: typing.List[typing.Dict[str, str | float]] = []
 
@@ -18,7 +18,7 @@ class Pipeline(pydantic.BaseModel):
                 self.endpoint,
                 json={
                     "samples": samples,
-                    "theta": theta,
+                    "threshold": threshold,
                 },
             ).json()["predictions"]
 
