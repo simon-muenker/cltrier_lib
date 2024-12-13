@@ -39,10 +39,10 @@ class Message(pydantic.BaseModel):
 class Chat(pydantic.BaseModel):
     messages: typing.List[Message]
 
-    def __getitem__(self, index: int):
+    def __getitem__(self, index: int) -> Message:
         return self.messages[index]
 
-    def __iter__(self):
+    def __iter__(self) -> typing.Iterator[Message]:
         return iter(self.messages)
 
     def add_message(self, message: Message) -> "Chat":
