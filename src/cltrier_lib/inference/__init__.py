@@ -9,7 +9,7 @@ from cltrier_lib.inference import schemas
 
 
 class Pipeline(pydantic.BaseModel):
-    model: schemas.Models = typing.get_args(schemas.Models)[0]
+    model: schemas.MODELS = typing.get_args(schemas.MODELS)[0]
     endpoint: str = "https://inf.cl.uni-trier.de/chat/"
 
     def __call__(

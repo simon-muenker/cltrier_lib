@@ -4,9 +4,9 @@ import pydantic
 import rich
 
 
-Roles = typing.Literal["user", "assistant", "system"]
+ROLES = typing.Literal["user", "assistant", "system"]
 
-Models = typing.Literal[
+MODELS = typing.Literal[
     # LLama (MetaAI)
     "llama3.1:8b-instruct-q6_K",
     "llama3.1:70b-instruct-q6_K",
@@ -26,7 +26,7 @@ Models = typing.Literal[
 
 
 class Message(pydantic.BaseModel):
-    role: Roles
+    role: ROLES
     content: str
 
     def pprint(self) -> None:
