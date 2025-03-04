@@ -9,19 +9,16 @@ ROLES = typing.Literal["user", "assistant", "system"]
 MODELS = typing.Literal[
     # LLama (MetaAI)
     "llama3.1:8b-instruct-q6_K",
-    "llama3.1:70b-instruct-q6_K",
     "llama3.3:70b-instruct-q6_K",
     # Mi(s/x)tral (Mistral AI)
     "mistral:7b-instruct-v0.2-q6_K",
     "mixtral:8x7b-instruct-v0.1-q6_K",
     # Phi (Mircosoft)
-    "phi3:14b-medium-128k-instruct-q6_K",
-    "phi3.5:3.8b-mini-instruct-q6_K",
+    "phi4:latest",
     # Gemma (Google)
-    "gemma:7b-instruct-q6_K",
     "gemma2:27b-instruct-q6_K",
-    # QWEN (Alibaba)
-    "qwen2:72b-instruct-q6_K",
+    # Deepseek
+    "deepseek-r1:70b",
 ]
 
 
