@@ -7,18 +7,14 @@ import rich
 ROLES = typing.Literal["user", "assistant", "system"]
 
 MODELS = typing.Literal[
-    # LLama (MetaAI)
-    "llama3.1:8b-instruct-q6_K",
-    "llama3.3:70b-instruct-q6_K",
-    # Mi(s/x)tral (Mistral AI)
-    "mistral:7b-instruct-v0.2-q6_K",
-    "mixtral:8x7b-instruct-v0.1-q6_K",
-    # Phi (Mircosoft)
-    "phi4:latest",
-    # Gemma (Google)
-    "gemma2:27b-instruct-q6_K",
-    # Deepseek
+    "llama3.1:8b",
+    "llama3.3:70b",
+    "mistral:7b",
+    "mistral-large:123b",
+    "deepseek-r1:7b",
     "deepseek-r1:70b",
+    "qwen2.5:7b",
+    "qwen2.5:72b"
 ]
 
 
